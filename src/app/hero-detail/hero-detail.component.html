@@ -1,0 +1,25 @@
+<div *ngIf="hero">
+
+    <h2>Detalles {{ hero.name | uppercase }}</h2>
+    <div><span>id: </span> {{ hero.id }} </div>
+
+    <!--formateo con UppercasePipe-->
+    <!--pipe (|)-->
+    <!--<div><span>name: </span> {{ selectedHero.name | uppercase }} </div>-->
+
+    <!--adecuado para formatear cadenas, importes monetarios, fechas y otros datos de visualización-->
+    <!--angular viene con múltiples pipes incorporadas, tmb se pueden crear-->
+
+
+    <!--ngModel: sintaxis de enlace de datos bidireccional de angular-->
+    <!--vinculará la propiedad hero.name al cuadro de texto HTML
+    por lo que puede pasar datos en ambas direcciones-->
+    <div>
+        <label>name:
+            <input [(ngModel)]="hero.name" placeholder="name" />
+        </label>
+    </div>
+    <button (click)="save()">save</button>
+    <button (click)="goBack()">go back</button>
+
+</div>

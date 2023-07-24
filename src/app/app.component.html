@@ -1,0 +1,17 @@
+<!--interpolación vinculante-->
+<!--Este enlace de interpolación pasa el valor de la propiedad title del componente
+  en la etiqueta de encabezado HTML-->
+
+<h1>{{title}}</h1>
+<nav>
+  <a routerLink="/dashboard">Dashboard</a>
+  <!--routerLink: selector para la directiva RouterLink que convierte los clics del usuario en navegaciones del enrutador-->
+  <a routerLink="/heroes">Héroes</a> 
+</nav>
+<!--se agrega HeroesComponent, a través de su selector, a las Plantillas en el AppComponent-->
+<!--<app-heroes></app-heroes>--> <!--ya no es necesario *-->
+<router-outlet></router-outlet> <!--le dice al enrutador dónde mostrar las vistas enrutadas-->
+<app-messages></app-messages>
+
+<!--* la plantilla AppComponent ya no necesita <app-heroes>
+  porque la aplicación solo mostrará el HeroesComponent cuando el usuario navegue hacia él-->

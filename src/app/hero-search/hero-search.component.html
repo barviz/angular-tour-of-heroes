@@ -1,0 +1,23 @@
+<div id="search-component">
+    <h4><label for="search-box">Hero Search</label></h4>
+
+    <input #searchBox id="search-box" (input)="search(searchBox.value)" />
+
+    <ul class="search-result">
+        <li *ngFor="let hero of heroes$ | async"> <!--*-->
+            <a routerLink="/detail/{{hero.id}}">
+                {{hero.name}}
+            </a>
+        </li>
+    </ul>
+</div>
+
+<!--a medida que el usuario escribe en el cuadro de búsqueda
+    un enlace de evento de entrada llama al el método search() del componente
+    con el nuevo valor del cuadro de búsqueda-->
+
+<!--* el $ es una convención que indica que heroes$ es un observable, no un arreglo
+      como *ngFor no puede hacer nada con un Observable, usa el carácter de filtración (|)
+      seguido de async. esto identifica el "AsyncPipe" de angular y se suscribe automáticamente a un Observable
+      para que no tenga que hacerlo en la clase de componente
+-->

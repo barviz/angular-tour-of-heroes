@@ -1,0 +1,47 @@
+<h2>Lista de héroes</h2>
+
+<!--en respuesta a un evento de clic, llama al controlador de clic del componente, add(),
+y luego borra el campo de entrada para que esté listo para otro nombre-->
+<div>
+    <label>Hero name:
+        <input #heroName />
+    </label>
+    <button (click)="add(heroName.value); heroName.value=''">
+        add
+    </button>
+</div>
+
+<!--
+    <ul class="heroes">
+    <li *ngFor="let hero of heroes" (click)="onSelect(hero)" [class.selected]="hero === selectedHero">
+        <span class="badge">{{ hero.id }}</span> {{hero.name}}
+    </li>
+</ul>
+-->
+<ul class="heroes">
+    <li *ngFor="let hero of heroes"> <!--iterar sobre la lista de héroes-->
+        <a routerLink="/detail/{{hero.id}}">
+            <span class="badge">{{ hero.id }}</span> {{hero.name}}
+        </a>
+        <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
+    </li>
+</ul>
+
+<!--*ngFor es directiva de repetición, repite el elemento host (<li>) para cada elemento de la lista-->
+<!--heroes es una lista de clases HeroesComponent que contiene la lista de héroes simulados-->
+<!--hero contiene el objeto héroe actual en una lista para cada ciclo-->
+
+<!--(onclick): paréntesis = evento clic para <li>-->
+<!--al hacer clic en <li> se ejecuta la expresión onSelect(hero).-->
+
+<!--[class.selected] enlace de clase que facilita la adición y eliminación de clases css condicionales-->
+
+<!--<app-hero-detail [hero] = "selectedHero"></app-hero-detail>-->
+
+<!--enlace de datos unidireccional de la propiedad selectedHero HeroesComponent a la propiedad hero del elemento objetivo-->
+<!--se asigna la propiedad hero de HeroDetailComponent-->
+<!--cuando se hace clic en un héroe en la lista, el selectedHero cambia-->
+<!--cuando selectedHero cambia,el enlace de propiedad actualiza hero y HeroDetailComponent muestra el nuevo héroe-->
+
+<!--se refactorizó el HeroesComponent original en dos componentes-->
+<!--se simplificó HeroesComponent al reducir su responsabilidad-->
